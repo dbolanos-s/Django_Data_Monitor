@@ -1,6 +1,8 @@
 from django.shortcuts import render
 
-
 def index(request):
-    """Renderiza la plantilla principal del dashboard mediante SSR."""
-    return render(request, "dashboard/base.html")
+    data = {
+        "title": "Landing Page' Dashboard",
+    }
+
+    return render(request, "dashboard/index.html", data)
