@@ -29,9 +29,8 @@
       </header>
 
       <main class="content">
+        {% block content %}
         <!-- START - Block content -->
-        <section class="placeholder-card">
-  <!-- START - Block content -->
         <section class="placeholder-card">
           <p class="placeholder-label">Server Side Rendering</p>
           <h2>Block content</h2>
@@ -41,6 +40,7 @@
           </p>
         </section>
         <!-- END - Block content -->
+        {% endblock %}
       </main>
     </div>
   </div>
