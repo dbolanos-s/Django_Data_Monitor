@@ -1,24 +1,16 @@
-<div class="mb-8">
-    <p class="text-sm font-medium">
-        Backend Analytics Server
-    </p>
+<div class="page-header">
+    <p class="placeholder-label">Backend Analytics Server</p>
 
-    <h1 class="text-3xl font-bold">
-        {{ title }}
-    </h1>
+    <h1>{{ title }}</h1>
 
-    <p>
-        Monitor de datos mediante Django y Server Side Rendering.
-    </p>
+    <p>Monitor de datos mediante Django y Server Side Rendering.</p>
 
     {% if user.is_authenticated %}
-    <div class="mt-4">
-        <span class="text-sm font-medium">Sesión iniciada como {{ user.username }}</span>
+    <div class="user-box">
+        <span>Sesión iniciada como <strong>{{ user.username }}</strong></span>
         <form method="post" action="{% url 'logout' %}">
             {% csrf_token %}
-            <button type="submit" class="mt-2 px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-lg">
-                Cerrar sesión
-            </button>
+            <button type="submit" class="logout-button">Cerrar sesión</button>
         </form>
     </div>
     {% endif %}

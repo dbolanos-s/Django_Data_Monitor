@@ -6,42 +6,68 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Iniciar sesión</title>
   <link rel="stylesheet" href="{% static 'assets/css/tailwind.output.css' %}">
+  <style>
+    .login-wrap { min-height: 100vh; display: grid; place-items: center; padding: 24px; }
+    .login-card {
+      width: min(400px, 100%);
+      padding: 36px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: var(--surface);
+      box-shadow: 0 18px 50px rgba(15, 23, 42, .08);
+    }
+    .login-card h1 { margin: 6px 0 22px; font-size: 1.6rem; }
+    .login-field { display: block; margin-bottom: 16px; }
+    .login-field span { display: block; margin-bottom: 6px; color: var(--muted); font-size: .85rem; font-weight: 600; }
+    .login-field input {
+      width: 100%;
+      padding: 11px 13px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--bg);
+      color: var(--text);
+      font-size: .95rem;
+    }
+    .login-button {
+      width: 100%;
+      border: 0;
+      padding: 12px;
+      border-radius: 10px;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 700;
+      font-size: .95rem;
+      cursor: pointer;
+      margin-top: 6px;
+    }
+    .login-error { margin: 0 0 16px; color: #dc2626; font-size: .88rem; }
+  </style>
 </head>
-<body class="bg-gray-50">
-  <div class="flex items-center min-h-screen p-6">
-    <div class="flex-1 h-full max-w-md mx-auto bg-white rounded-lg shadow-xl">
-      <div class="p-8">
-        <h1 class="mb-6 text-2xl font-semibold text-gray-700">
-          Iniciar sesión
-        </h1>
+<body>
+  <div class="login-wrap">
+    <div class="login-card">
+      <p class="placeholder-label">Backend Analytics Server</p>
+      <h1>Iniciar sesión</h1>
 
-        {% if form.errors %}
-        <p class="mb-4 text-sm text-red-600">
-          Usuario o contraseña incorrectos.
-        </p>
-        {% endif %}
+      {% if form.errors %}
+      <p class="login-error">Usuario o contraseña incorrectos.</p>
+      {% endif %}
 
-        <form method="post">
-          {% csrf_token %}
+      <form method="post">
+        {% csrf_token %}
 
-          <label class="block text-sm">
-            <span class="text-gray-700">Usuario</span>
-            <input type="text" name="username" required autofocus
-                   class="block w-full mt-1 px-3 py-2 text-sm border rounded-md">
-          </label>
+        <label class="login-field">
+          <span>Usuario</span>
+          <input type="text" name="username" required autofocus>
+        </label>
 
-          <label class="block mt-4 text-sm">
-            <span class="text-gray-700">Contraseña</span>
-            <input type="password" name="password" required
-                   class="block w-full mt-1 px-3 py-2 text-sm border rounded-md">
-          </label>
+        <label class="login-field">
+          <span>Contraseña</span>
+          <input type="password" name="password" required>
+        </label>
 
-          <button type="submit"
-                  class="block w-full px-4 py-2 mt-6 text-sm font-medium text-white bg-purple-600 rounded-lg">
-            Entrar
-          </button>
-        </form>
-      </div>
+        <button type="submit" class="login-button">Entrar</button>
+      </form>
     </div>
   </div>
 </body>

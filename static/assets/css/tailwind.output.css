@@ -70,9 +70,10 @@ nav { display: grid; gap: 8px; }
   cursor: pointer;
   font-weight: 700;
 }
-.content { min-height: calc(100vh - 92px); display: grid; place-items: center; padding: 32px; }
+.content { min-height: calc(100vh - 92px); padding: 32px; }
 .placeholder-card {
   width: min(720px, 100%);
+  margin: 0 auto;
   padding: 40px;
   border: 1px solid var(--border);
   border-radius: 18px;
@@ -84,6 +85,64 @@ nav { display: grid; gap: 8px; }
 .placeholder-card h2 { margin: 8px 0 12px; font-size: clamp(2rem, 5vw, 3.5rem); }
 .placeholder-card p { color: var(--muted); line-height: 1.7; }
 code { background: var(--surface-soft); padding: 2px 6px; border-radius: 6px; color: var(--text); }
+
+.page-header { margin-bottom: 28px; }
+.page-header h1 { margin: 6px 0 8px; font-size: 2rem; }
+.page-header p { margin: 0; color: var(--muted); }
+
+.user-box {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.user-box span { color: var(--muted); font-size: .9rem; }
+.logout-button {
+  border: 0;
+  padding: 9px 14px;
+  border-radius: 10px;
+  background: #dc2626;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: .85rem;
+}
+
+.cards {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  margin-bottom: 28px;
+}
+.card {
+  padding: 22px 24px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, .06);
+}
+.card-label { margin: 0; color: var(--muted); font-size: .85rem; font-weight: 600; }
+.card-value { margin: 8px 0 0; font-size: 2.2rem; font-weight: 800; color: var(--accent-strong); }
+
+.table-wrap {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, .06);
+}
+.data-table { width: 100%; border-collapse: collapse; }
+.data-table thead { background: var(--surface-soft); }
+.data-table th {
+  text-align: left;
+  padding: 14px 18px;
+  font-size: .78rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--accent-strong);
+}
+.data-table td { padding: 13px 18px; border-top: 1px solid var(--border); font-size: .92rem; }
 
 @media (max-width: 760px) {
   .sidebar { width: 190px; }
