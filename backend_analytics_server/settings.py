@@ -6,7 +6,21 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = "django-insecure-development-key-change-before-production"
 DEBUG = True
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
+    ".github.dev",
+    ".pythonanywhere.com",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.github.dev",
+    "https://*.app.github.dev",
+    "http://localhost:8000",
+    "https://localhost:8000",
+    "http://127.0.0.1:8000",
+]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -72,3 +86,9 @@ STATICFILES_DIRS = [
 ]
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+API_URL = "https://jsonplaceholder.typicode.com/posts"
+
+LOGIN_URL = "/login/"
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/login/"

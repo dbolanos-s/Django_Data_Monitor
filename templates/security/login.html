@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar sesión</title>
+  <link rel="stylesheet" href="{% static 'assets/css/tailwind.output.css' %}">
+</head>
+<body class="bg-gray-50">
+  <div class="flex items-center min-h-screen p-6">
+    <div class="flex-1 h-full max-w-md mx-auto bg-white rounded-lg shadow-xl">
+      <div class="p-8">
+        <h1 class="mb-6 text-2xl font-semibold text-gray-700">
+          Iniciar sesión
+        </h1>
+
+        {% if form.errors %}
+        <p class="mb-4 text-sm text-red-600">
+          Usuario o contraseña incorrectos.
+        </p>
+        {% endif %}
+
+        <form method="post">
+          {% csrf_token %}
+
+          <label class="block text-sm">
+            <span class="text-gray-700">Usuario</span>
+            <input type="text" name="username" required autofocus
+                   class="block w-full mt-1 px-3 py-2 text-sm border rounded-md">
+          </label>
+
+          <label class="block mt-4 text-sm">
+            <span class="text-gray-700">Contraseña</span>
+            <input type="password" name="password" required
+                   class="block w-full mt-1 px-3 py-2 text-sm border rounded-md">
+          </label>
+
+          <button type="submit"
+                  class="block w-full px-4 py-2 mt-6 text-sm font-medium text-white bg-purple-600 rounded-lg">
+            Entrar
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

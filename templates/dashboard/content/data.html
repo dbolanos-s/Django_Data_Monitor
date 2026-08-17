@@ -2,38 +2,61 @@
 
     <div class="p-4 bg-white rounded-lg shadow">
         <p class="mb-2 text-sm font-medium">
-            Indicador 1
+            Total de respuestas
         </p>
         <p class="text-lg font-semibold">
-            Valor 1
+            {{ total_responses }}
         </p>
     </div>
 
     <div class="p-4 bg-white rounded-lg shadow">
         <p class="mb-2 text-sm font-medium">
-            Indicador 2
+            Usuarios registrados
         </p>
         <p class="text-lg font-semibold">
-            Valor 2
+            {{ users }}
         </p>
     </div>
 
     <div class="p-4 bg-white rounded-lg shadow">
         <p class="mb-2 text-sm font-medium">
-            Indicador 3
+            Promedio por usuario
         </p>
         <p class="text-lg font-semibold">
-            Valor 3
+            {{ average }}
         </p>
     </div>
 
     <div class="p-4 bg-white rounded-lg shadow">
         <p class="mb-2 text-sm font-medium">
-            Indicador 4
+            Mostrando
         </p>
         <p class="text-lg font-semibold">
-            Valor 4
+            {{ posts|length }}
         </p>
     </div>
 
+</div>
+
+<div class="w-full overflow-hidden rounded-lg shadow-xs">
+    <div class="w-full overflow-x-auto">
+        <table class="w-full whitespace-no-wrap">
+            <thead>
+                <tr class="text-xs font-semibold tracking-wide text-left uppercase border-b bg-gray-50">
+                    <th class="px-4 py-3">#</th>
+                    <th class="px-4 py-3">Título</th>
+                    <th class="px-4 py-3">Usuario</th>
+                </tr>
+            </thead>
+            <tbody class="bg-white divide-y">
+                {% for post in posts %}
+                <tr class="text-gray-700">
+                    <td class="px-4 py-3 text-sm">{{ post.id }}</td>
+                    <td class="px-4 py-3 text-sm">{{ post.title }}</td>
+                    <td class="px-4 py-3 text-sm">{{ post.userId }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>
