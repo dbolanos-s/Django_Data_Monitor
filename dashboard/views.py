@@ -1,17 +1,17 @@
-from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required, permission_required
 from django.shortcuts import render
 
 import requests
 from django.conf import settings
 
+
 @login_required
+@permission_required('dashboard.index_viewer', raise_exception=True)
 def index(request):
 
-    response = requests.get(settings.API_URL)  # URL de la API
-    posts = response.json()  # Convertir la respuesta a JSON
+    response = requests.get(settings.API_URL)
+    posts = response.json()
 
-    # Número total de respuestas
     total_responses = len(posts)
 
     data = {

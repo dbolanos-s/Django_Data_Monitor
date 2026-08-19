@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Backend - 403</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet" />
+        <link rel="stylesheet" href="{% static 'css/tailwind.output.css' %}">
+    </head>
+    <body>
+        <div class="flex items-center min-h-screen p-6 bg-gray-50 dark:bg-gray-900">
+            <div class="flex-1 h-full max-w-md mx-auto overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800">
+                <div class="p-8 text-center">
+                    <h1 class="text-6xl font-semibold text-purple-600 dark:text-purple-300">
+                        403
+                    </h1>
+                    <p class="mt-4 text-xl font-semibold text-gray-700 dark:text-gray-200">
+                        Acceso denegado
+                    </p>
+                    <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                        No cuentas con los permisos necesarios para visualizar esta página.
+                    </p>
+                    <form method="post" action="{% url 'logout' %}" class="mt-6">
+                        {% csrf_token %}
+                        <button
+                            type="submit"
+                            class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
+                            Cerrar sesión
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
