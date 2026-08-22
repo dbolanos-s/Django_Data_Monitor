@@ -33,6 +33,7 @@ DEBUG = True
 
 CSRF_TRUSTED_ORIGINS = [
     "https://*.app.github.dev",
+    "https://*.pythonanywhere.com",
     "https://localhost:8000",
     "http://127.0.0.1:8000",
 ]
@@ -144,6 +145,8 @@ STATIC_URL = "/static/"
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
+
+STATIC_ROOT = "assets/"
 
 # Email
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
